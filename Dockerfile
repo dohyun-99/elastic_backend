@@ -21,6 +21,7 @@ RUN mvn package
 #FROM eclipse-temurin:17.0.2_8-jre-alpine
 FROM shclub/jre17-runtime:v1.0.0
 
+COPY elastic-apm-agent-1.48.1.jar ./
 COPY --from=MAVEN_BUILD /build/target/*.jar app.jar
 
 ENV TZ Asia/Seoul
